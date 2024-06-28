@@ -12,16 +12,19 @@ var total = document.getElementById("total")
 var cash = document.getElementById("cash")
 var change = document.getElementById("change")
 
-function addOrder1(){
-    var order= qty1.value.toString() + ' pc/s x '+ price1.textContent + '------'+ product1.textContent + '------ Php' + (parseFloat(qty1.value)*parseFloat(price1.textContent)) + '\n'
-    //carts.textContent += carts.value.toString() + "\n";
-    carts.textContent += order
+function addOrder(){
+    carts.textContent=""
+    if (parseFloat(qty1.value) > 0){
+        var order= qty1.value.toString() + ' pc/s x '+ price1.textContent + '------'+ product1.textContent + '------ Php' + (parseFloat(qty1.value)*parseFloat(price1.textContent)) + '\n'
+        //carts.textContent += carts.value.toString() + "\n";
+        carts.textContent += order
+    }
+    if (parseFloat(qty2.value) > 0){
+        var order= qty2.value.toString() + ' pc/s x '+ price2.textContent + '------'+ product2.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
+        //carts.textContent += carts.value.toString() + "\n";
+        carts.textContent += order
+    }
 }
-function addOrder2(){
-    var order= qty2.value.toString() + ' pc/s x '+ price2.textContent + '------'+ product2.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
-    //carts.textContent += carts.value.toString() + "\n";
-    carts.textContent += order
-}
-qty1.addEventListener("keyup", addOrder1);
-qty2.addEventListener("keyup", addOrder2);
+qty1.addEventListener("keyup", addOrder);
+qty2.addEventListener("keyup", addOrder);
 
